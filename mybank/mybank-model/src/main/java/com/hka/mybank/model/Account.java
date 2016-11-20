@@ -3,7 +3,7 @@ package com.hka.mybank.model;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
-import com.hka.mybank.model.utils.CurrentDateFactry;
+import com.hka.mybank.model.utils.CurrentDateFactory;
 import com.hka.mybank.model.utils.DateFactory;
 
 
@@ -15,7 +15,7 @@ public class Account {
 	/**
 	 * Will be used to generate relevant time for account operations
 	 */
-	public static DateFactory df = new CurrentDateFactry();
+	public static DateFactory df = new CurrentDateFactory();
 	
 	private ArrayList<Operation> operations;
 
