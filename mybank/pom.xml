@@ -28,7 +28,13 @@
 				<artifactId>mybank-model</artifactId>
 				<version>${project.version}</version>
 			</dependency>
-
+			<dependency>
+				<groupId>com.hka</groupId>
+				<artifactId>mybank-features</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		    
+		    <!-- CUCUMBER DEPENDECIES -->
 			<dependency>
 				<groupId>com.github.cukespace</groupId>
 				<artifactId>cukespace-core</artifactId>
@@ -38,13 +44,13 @@
 			<dependency>
 				<groupId>info.cukes</groupId>
 				<artifactId>cucumber-java</artifactId>
-				<version>1.1.8</version>
+				<version>1.2.5</version>
 				<scope>test</scope>
 			</dependency>
 			<dependency>
 				<groupId>info.cukes</groupId>
 				<artifactId>cucumber-junit</artifactId>
-				<version>1.1.8</version>
+				<version>1.2.5</version>
 				<scope>test</scope>
 			</dependency>
 
@@ -56,5 +62,6 @@
 		<module>mybank-model</module>
 		<module>mybank-features</module>
 		<module>mybank-exception</module>
+		<module>mybank-bdd</module>
 	</modules>
 </project>
