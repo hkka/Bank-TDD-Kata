@@ -3,6 +3,8 @@ package com.hka.mybank.model.test;
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.hka.mybank.exception.api.MyBankErrorInfo;
+import com.hka.mybank.exception.api.MyBankException;
 import com.hka.mybank.model.Account;
 import com.hka.mybank.model.Operation;
 import com.hka.mybank.model.OperationType;
@@ -48,7 +50,7 @@ public class AccountTest {
 		Double moneyToWithdraw = AccountTestingUtils.generateAnyDoubleBelowGivenDouble(initBalanceValue);
 		try {
 			account.withDraw(moneyToWithdraw);
-		} catch (Exception e) {
+		} catch (MyBankException e) {
 			Assert.fail("Exception occured during withdraw operation : " + e.getMessage());
 		}
 		
@@ -65,18 +67,20 @@ public class AccountTest {
 		Long accountNumber = 1l;
 		Account account = new Account(accountNumber, initBalanceValue);
 		
-		Exception expectedException = null;
+		MyBankException expectedException = null;
 				
 		// WHEN
 		Double moneyToWithdraw = AccountTestingUtils.generateAnyDoubleGreaterThanGivenDouble(initBalanceValue);
 		try {
 			account.withDraw(moneyToWithdraw);
-		} catch (Exception e) {
+		} catch (MyBankException e) {
 			expectedException = e;			
 		}
+		
+		String expectedExceptionMessage = MyBankErrorInfo.INSUFFUCIENT_FUNDS.message();
 				
 		// THEN	
-		Assert.assertEquals(expectedException.getMessage(), "Insufficient Funds");
+		Assert.assertEquals(expectedException.getMessage(), expectedExceptionMessage);
 	}
 	
 	/**
@@ -130,7 +134,7 @@ public class AccountTest {
 		Double operationAmount = AccountTestingUtils.generateAnyDoubleBelowGivenDouble(initBalanceValue);	
 		try {
 			myAccount.withDraw(operationAmount);
-		} catch (Exception e) {
+		} catch (MyBankException e) {
 			Assert.fail("Exception occured during withdraw operation : " + e.getMessage());
 		}
 		

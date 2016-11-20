@@ -1,8 +1,11 @@
 package com.hka.mybank.model;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.stream.Stream;
 
+import com.hka.mybank.exception.api.MyBankErrorInfo;
+import com.hka.mybank.exception.api.MyBankException;
 import com.hka.mybank.model.utils.CurrentDateFactory;
 import com.hka.mybank.model.utils.DateFactory;
 
@@ -34,10 +37,10 @@ public class Account {
 		return balance;
 	}
 
-	public void withDraw(Double d) throws Exception {
+	public void withDraw(Double d) throws MyBankException {
 		
 		if(d > this.balance)
-			throw new Exception("Insufficient Funds");
+			throw new MyBankException(MyBankErrorInfo.INSUFFUCIENT_FUNDS);
 		
 		this.balance = this.balance - d;
 		Operation op = new Operation(OperationType.WITHDRAW, df.getTime(), d, this.balance);
@@ -58,5 +61,19 @@ public class Account {
 
 	public void setOperations(ArrayList<Operation> operations) {
 		this.operations = operations;
+	}
+	
+	@Override
+	public int hashCode() {		
+		return Objects.hash(this.balance.byteValue(), this.number);
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		
+		if(!(obj instanceof Account))
+			return false;
+		
+		return this.hashCode() == obj.hashCode();
 	}
 }

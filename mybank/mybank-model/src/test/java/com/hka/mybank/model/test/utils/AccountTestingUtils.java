@@ -2,6 +2,12 @@ package com.hka.mybank.model.test.utils;
 
 import java.util.Random;
 
+/**
+ * Provides Some Utils functions to AccountTest class
+ * 
+ * @author MAHASSAN
+ *
+ */
 public class AccountTestingUtils {
 	
 	private static Double minDouble = 0.0;
