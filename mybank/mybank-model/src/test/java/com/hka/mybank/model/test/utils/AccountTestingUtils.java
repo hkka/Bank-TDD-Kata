@@ -21,6 +21,28 @@ public class AccountTestingUtils {
 	}
 	
 	/**
+	 * Generate a Double greater than the passed argument @minValue
+	 * 
+	 * @param minValue
+	 * @return Double value
+	 */
+	public static Double generateAnyDoubleGreaterThanGivenDouble(Double minValue){
+		Double generatedDouble = minValue + new Random().nextDouble() * (maxDouble - minValue);
+		return generatedDouble;
+	}
+	
+	/**
+	 * Generate a Double below the passed argument @maxValue
+	 * 
+	 * @param minValue
+	 * @return Double value
+	 */
+	public static Double generateAnyDoubleBelowGivenDouble(Double maxValue){
+		Double generatedDouble = minDouble + new Random().nextDouble() * (maxValue - minDouble);
+		return generatedDouble;
+	}
+	
+	/**
 	 *  Generate random Long greater than zero
 	 *  
 	 * @return Long value

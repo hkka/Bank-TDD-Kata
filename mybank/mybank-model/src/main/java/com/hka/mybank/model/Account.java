@@ -34,8 +34,14 @@ public class Account {
 		return balance;
 	}
 
-	public void withDraw(Double d) {
+	public void withDraw(Double d) throws Exception {
+		
+		if(d > this.balance)
+			throw new Exception("Insufficient Funds");
+		
 		this.balance = this.balance - d;
+		Operation op = new Operation(OperationType.WITHDRAW, df.getTime(), d, this.balance);
+		operations.add(op);
 	}
 
 	public Long getNumber() {
