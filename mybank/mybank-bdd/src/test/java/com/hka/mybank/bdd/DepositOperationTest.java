@@ -1,4 +1,4 @@
-package com.hka.mybank.bdd.deposit;
+package com.hka.mybank.bdd;
 
 import org.junit.runner.RunWith;
 
