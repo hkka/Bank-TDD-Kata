@@ -2,6 +2,8 @@ package com.hka.mybank.model;
 
 import java.util.stream.Stream;
 
+import com.hka.mybank.exception.api.MyBankException;
+
 /**
  * Class that represents Client actor
  * 
@@ -31,6 +33,10 @@ public class Client {
 	
 	public void deposit(Double depositAmount){
 		this.account.deposit(depositAmount);
+	}
+
+	public void withDraw(Double doubleOperationAmount) throws MyBankException {
+		this.account.withDraw(doubleOperationAmount);		
 	}
 
 }

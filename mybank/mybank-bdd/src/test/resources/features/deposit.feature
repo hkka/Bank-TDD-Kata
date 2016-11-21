@@ -6,5 +6,5 @@ Feature: Deposit
   @DepositAmountIsAddedToExistingBalance
   Scenario: Account Balance is increased by deposit amount 
   Given a MyBank client with 20 as account balance
-  When i deposit 10
+  When i "deposit" 10
   Then my account balance is 30
