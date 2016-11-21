@@ -18,7 +18,7 @@
 
 		<dependency>
 			<groupId>com.hka</groupId>
-			<artifactId>mybank-features</artifactId>
+			<artifactId>mybank-model</artifactId>
 		</dependency>
 
 		<!-- TEST dependencies -->

@@ -28,5 +28,9 @@ public class Client {
 	public Stream<Operation> listMyOperations() {		
 		return this.account.getOperations();
 	}
+	
+	public void deposit(Double depositAmount){
+		this.account.deposit(depositAmount);
+	}
 
 }
