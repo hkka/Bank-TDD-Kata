@@ -18,6 +18,10 @@ public class Operation {
 		this.currentBalance = accountBalanceAfterOperation;
 	}
 	
+	public Operation() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public OperationType getType() {
 		return type;
 	}
