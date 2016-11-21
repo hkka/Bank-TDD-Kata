@@ -1,5 +1,9 @@
 package com.hka.mybank.bdd;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
 import org.junit.Assert;
 
 import com.hka.mybank.exception.api.MyBankErrorInfo;
@@ -7,6 +11,8 @@ import com.hka.mybank.exception.api.MyBankException;
 import com.hka.mybank.model.Account;
 import com.hka.mybank.model.Client;
 
+import cucumber.api.DataTable;
+import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -61,4 +67,25 @@ public class MyBankOperationStepsDef {
 	    Assert.assertNotNull(myBankExcp);
 	    Assert.assertEquals(MyBankErrorInfo.INSUFFUCIENT_FUNDS.message(), myBankExcp.getMessage());
 	}
+	
+	@Then("^i can see$")
+	public void i_can_see(List<Map<String, String>> data) throws Throwable {	
+		
+//		data.stream().map((k,v) -> v);
+		
+		for (Map<String, String> map : data) {
+			for (String key : map.keySet()) {
+				System.out.println(key);
+			}
+		}
+	    
+	}
+	
+	@When("^i check my operations$")
+	public void i_check_my_operations() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+//	    throw new PendingException();
+	}
+	
+	
 }
