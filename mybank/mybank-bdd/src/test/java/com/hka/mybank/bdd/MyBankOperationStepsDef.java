@@ -21,12 +21,22 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+/**
+ * operations.feature bdd scenario steps definition
+ * 
+ * @author MAHASSAN
+ *
+ */
 public class MyBankOperationStepsDef {
 	
 	private static final String DEPOSIT_OPERATION = "deposit";
 	private static final String WITHDRAW_OPERATION = "retrieve";
 	private DateFactory testDateFactory = new FixDateFactory();
+	
+	// contains the operations that will be done during the current BDD scenario
 	private Stream<Operation> clientOperationsOccuredDuringBddScenario;
+	
+	// expected operations at the end of the current BDD scenario
 	private ArrayList<Operation> expectedOperations = new ArrayList<Operation>();
 	
 	Long accountNumber = 1l;
@@ -86,7 +96,7 @@ public class MyBankOperationStepsDef {
 		
 		data.stream().forEach(item -> {								
 										Operation o = new Operation();
-										MyBankBDDUtils.buildOperationFromBddFeatureData(o, item);
+										MyBankBDDUtils.updateOperationFieldsFromBddFeatureData(o, item);
 										expectedOperations.add(o);
 									}
 		);

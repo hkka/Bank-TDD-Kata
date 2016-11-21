@@ -6,11 +6,23 @@ import com.hka.mybank.model.Operation;
 import com.hka.mybank.model.OperationType;
 import com.hka.mybank.model.utils.DateFactory;
 
+/**
+ * Utilities class offering useful operations for MBank BDD scenarii
+ * 
+ * @author MAHASSAN
+ *
+ */
 public class MyBankBDDUtils {
 	
 	private static DateFactory testDateFactory = new FixDateFactory();
 	
-	static public void buildOperationFromBddFeatureData(Operation o, Map<String, String> data){
+	/**
+	 * Update passed @o operation object fields with values in the second parameter @data
+	 * 
+	 * @param o Operation object to update
+	 * @param data Map<String, String> of Operation fields (type, amount, balance) and their values
+	 */
+	static public void updateOperationFieldsFromBddFeatureData(Operation o, Map<String, String> data){
 		
 		data.forEach( (k,v) -> {	
 						switch (k) {
