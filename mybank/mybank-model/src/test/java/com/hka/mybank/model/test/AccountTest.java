@@ -12,6 +12,8 @@ import com.hka.mybank.model.test.utils.AccountTestingUtils;
 import com.hka.mybank.model.test.utils.FixDateFactory;
 import com.hka.mybank.model.utils.DateFactory;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class AccountTest {
 	
 	/**
@@ -31,7 +33,7 @@ public class AccountTest {
 		
 		// THEN
 		Double expectedBalanceValueAfterDeposit = Double.sum(initBalanceValue, moneyToDeposit);		
-		Assert.assertEquals(expectedBalanceValueAfterDeposit, myAccount.getBalance());
+		assertThat(expectedBalanceValueAfterDeposit).isEqualTo(myAccount.getBalance());
 	}
 	
 	/**
@@ -56,7 +58,7 @@ public class AccountTest {
 		
 		// THEN
 		Double expectedBalanceValueAfterWithdraw = Double.sum(initBalanceValue, - moneyToWithdraw);		
-		Assert.assertEquals(expectedBalanceValueAfterWithdraw, account.getBalance());
+		assertThat(expectedBalanceValueAfterWithdraw).isEqualTo(account.getBalance());
 	}
 	
 	@Test
@@ -79,8 +81,8 @@ public class AccountTest {
 		
 		String expectedExceptionMessage = MyBankErrorInfo.INSUFFUCIENT_FUNDS.message();
 				
-		// THEN	
-		Assert.assertEquals(expectedException.getMessage(), expectedExceptionMessage);
+		// THEN			
+		assertThat(expectedException.getMessage()).isEqualTo(expectedExceptionMessage);
 	}
 	
 	/**
@@ -107,8 +109,7 @@ public class AccountTest {
 		
 		// THEN
 		int nbOfMatchingOperationFound = (int) myAccount.getOperations().filter(o -> o.equals(expectedOperationAfterDeposit)).count();		
-
-		Assert.assertEquals(1, nbOfMatchingOperationFound);
+		assertThat(nbOfMatchingOperationFound).isEqualTo(1);
 	}
 	
 	/**
@@ -143,7 +144,6 @@ public class AccountTest {
 		
 		// THEN
 		int nbOfMatchingOperationFound = (int) myAccount.getOperations().filter(o -> o.equals(expectedOperationAfterDeposit)).count();		
-
-		Assert.assertEquals(1, nbOfMatchingOperationFound);
+		assertThat(nbOfMatchingOperationFound).isEqualTo(1);
 	}
 }
