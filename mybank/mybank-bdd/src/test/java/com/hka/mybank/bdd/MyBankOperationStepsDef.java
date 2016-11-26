@@ -17,6 +17,8 @@ import com.hka.mybank.model.Client;
 import com.hka.mybank.model.Operation;
 import com.hka.mybank.model.utils.DateFactory;
 
+import static org.assertj.core.api.Assertions.*;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -76,14 +78,14 @@ public class MyBankOperationStepsDef {
 
 	@Then("^my account balance is (\\d+)$")
 	public void my_account_balance_is(int balance) throws Throwable {
-		Double expectedBalance = 1.0 * balance;
-	    Assert.assertEquals(expectedBalance, c.getAccount().getBalance());
+		Double expectedBalance = 1.0 * balance;	    
+	    assertThat(c.getAccount().getBalance()).isEqualTo(expectedBalance);
 	}
 	
 	@Then("^a mybankexception is thrown with error message \"([^\"]*)\"$")
 	public void a_mybankexception_is_thrown_with_error_message(String arg1) throws Throwable {
-	    Assert.assertNotNull(myBankExcp);
-	    Assert.assertEquals(MyBankErrorInfo.INSUFFUCIENT_FUNDS.message(), myBankExcp.getMessage());
+	    assertThat(myBankExcp).isNotNull();
+	    assertThat(myBankExcp.getMessage()).isEqualTo(MyBankErrorInfo.INSUFFUCIENT_FUNDS.message());
 	}
 	
 	@When("^i check my operations$")
@@ -107,7 +109,7 @@ public class MyBankOperationStepsDef {
 		System.out.println("----------------------------------------------------");
 		
 		int matchingOperations = clientOperationsOccuredDuringBddScenario.filter(o -> expectedOperations.contains(o)).collect(Collectors.toList()).size();
-	    Assert.assertEquals(expectedOperations.size(), matchingOperations);
+	    assertThat(matchingOperations).isEqualTo(expectedOperations.size());
 	    
 	}
 	

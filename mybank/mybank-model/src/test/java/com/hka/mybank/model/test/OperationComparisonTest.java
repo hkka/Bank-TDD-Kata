@@ -9,6 +9,8 @@ import com.hka.mybank.model.OperationType;
 import com.hka.mybank.model.test.utils.FixDateFactory;
 import com.hka.mybank.model.utils.DateFactory;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class OperationComparisonTest {
 	
 	private DateFactory testDateFactory = new FixDateFactory();
@@ -20,7 +22,7 @@ public class OperationComparisonTest {
 		
 		boolean comparingTwoSameOperationsResult = o1.equals(o2);
 		
-		Assert.assertTrue(comparingTwoSameOperationsResult);
+		assertThat(comparingTwoSameOperationsResult).isTrue();
 	}
 	
 	@Test
@@ -31,8 +33,8 @@ public class OperationComparisonTest {
 		Operation o2 = new Operation(OperationType.WITHDRAW, testDateFactory.getTime(), 10.0, 50.0);
 		
 		boolean comparingTwoSameOperationsResult = o1.equals(o2);
-		
-		Assert.assertFalse(comparingTwoSameOperationsResult);
+
+		assertThat(comparingTwoSameOperationsResult).isFalse();
 	}
 	
 	@Test
@@ -44,7 +46,7 @@ public class OperationComparisonTest {
 		
 		boolean comparingTwoSameOperationsResult = o1.equals(o2);
 		
-		Assert.assertFalse(comparingTwoSameOperationsResult);
+		assertThat(comparingTwoSameOperationsResult).isFalse();
 	}
 	
 	@Test
@@ -56,7 +58,7 @@ public class OperationComparisonTest {
 		
 		boolean comparingTwoSameOperationsResult = o1.equals(o2);
 		
-		Assert.assertFalse(comparingTwoSameOperationsResult);
+		assertThat(comparingTwoSameOperationsResult).isFalse();
 	}
 
 }

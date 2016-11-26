@@ -12,6 +12,8 @@ import com.hka.mybank.model.test.utils.AccountTestingUtils;
 import com.hka.mybank.model.test.utils.FixDateFactory;
 import com.hka.mybank.model.utils.DateFactory;
 
+import static org.assertj.core.api.Assertions.*;
+
 public class ClientTest {
 	
 	@Test
@@ -25,7 +27,7 @@ public class ClientTest {
 		Client c = new Client(expectedAccount);
 		
 		// THEN
-		Assert.assertTrue(expectedAccount.equals(c.getAccount()));
+		assertThat(c.getAccount()).isEqualTo(expectedAccount);
 	}
 	
 	@Test
@@ -54,9 +56,8 @@ public class ClientTest {
 		
 		//THEN
 		Long foundNumberOfOperations = c.listMyOperations().filter(o -> (o.equals(expectedOperation_1) || o.equals(expectedOperation_2))).count();
-		Long expectedNumberOfOperations = 2l;
-		
-		Assert.assertEquals(expectedNumberOfOperations, foundNumberOfOperations);
+		Long expectedNumberOfOperations = 2l;		
+		assertThat(foundNumberOfOperations).isEqualTo(expectedNumberOfOperations);
 	}
 
 }
