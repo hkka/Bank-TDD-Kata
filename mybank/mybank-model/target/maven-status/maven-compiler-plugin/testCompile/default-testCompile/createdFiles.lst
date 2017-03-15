@@ -1,0 +1,6 @@
+com\hka\mybank\model\test\AccountTest.class
+com\hka\mybank\model\test\OperationComparisonTest.class
+com\hka\mybank\model\test\ClientTest.class
+com\hka\mybank\model\test\utils\FixDateFactory.class
+com\hka\mybank\model\test\utils\ClientTestingUtils.class
+com\hka\mybank\model\test\utils\AccountTestingUtils.class

@@ -1,0 +1,6 @@
+com\hka\mybank\model\utils\DateFactory.class
+com\hka\mybank\model\Client.class
+com\hka\mybank\model\Operation.class
+com\hka\mybank\model\OperationType.class
+com\hka\mybank\model\utils\CurrentDateFactory.class
+com\hka\mybank\model\Account.class

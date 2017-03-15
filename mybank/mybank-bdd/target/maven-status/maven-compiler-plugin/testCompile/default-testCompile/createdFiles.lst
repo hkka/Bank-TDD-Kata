@@ -1,0 +1,6 @@
+com\hka\mybank\bdd\CheckOperationsTest.class
+com\hka\mybank\bdd\DepositOperationTest.class
+com\hka\mybank\bdd\utils\MyBankBDDUtils.class
+com\hka\mybank\bdd\WithDrawOperationTest.class
+com\hka\mybank\bdd\utils\FixDateFactory.class
+com\hka\mybank\bdd\MyBankOperationStepsDef.class
